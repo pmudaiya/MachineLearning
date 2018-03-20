@@ -1,9 +1,20 @@
+"""
+Problem
+We are given d add and we have to find out which add is best to show and which gives highest click on add
+
+the dataset we have teels which user will click on which add.
+
+In real case scenario this will be dynamic hence we are using the dataset just to check whether prediction
+is right or not
+"""
+
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 
 dataset=pd.read_csv('Ads_CTR_Optimisation.csv')
 
+#implementing UCB
 import math
 d=10
 N=10000
@@ -14,6 +25,7 @@ total_rewards=0
 for n in range(0,N):
     maximum_confidence=0
     ad_index=0
+    #finding upper bound and which bound to choose
     for i in range(0,d):
         if(number_of_times_selected[i]>0):
             average_reward=sum_of_rewards[i]/number_of_times_selected[i]
