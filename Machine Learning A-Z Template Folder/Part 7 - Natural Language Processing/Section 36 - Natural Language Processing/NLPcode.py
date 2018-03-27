@@ -42,7 +42,7 @@ for i in range(0,1000):
             if not word in set(stopwords.words('english')):
                 stemmed.append(ps.stem(word))
         else:
-            stemmed.append(word)
+            print(word)
             
     review=stemmed
     #Joining words to form another string
@@ -60,16 +60,17 @@ from sklearn.cross_validation import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.20, random_state = 0)
 
 # Fitting Naive Bayes to the Training set Bayes Classifier
-from sklearn.naive_bayes import GaussianNB
+'''from sklearn.naive_bayes import GaussianNB
 classifier = GaussianNB()
 classifier.fit(X_train, y_train)
-
+'''
 """
 FP=FAlse Positive TP=True Positive FN= False negative TN= True NEgative
 Comparison
 Bayes FP=42 FN=12 TP=55 TN=91 F1 SCore=
 Decision Tree FP=19 FN=31 TP=78 TN=72
 Random FOrest FP=7 FN=38 TP=90 TN=65
+Random FOrest FP=11 FN 47 TP=6 TN=56
 
 Accuracy = (TP + TN) / (TP + TN + FP + FN)
 
@@ -82,11 +83,11 @@ F1 Score = 2 * Precision * Recall / (Precision + Recall)
 Best F1 Score decide which to use
 
 """
-''''
+
 # Random FOrest Classifier
 from sklearn.ensemble import RandomForestClassifier
 classifier=RandomForestClassifier(n_estimators=700,criterion="entropy",random_state=0)
-classifier.fit(X_train,y_train)'''
+classifier.fit(X_train,y_train)
 
 # Predicting the Test set results
 y_pred = classifier.predict(X_test)
