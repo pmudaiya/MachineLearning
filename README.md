@@ -1,5 +1,5 @@
-# MachineLearning
-Codes of all Machine Learning Algorithm that are needed. It Includes
+# Machine Learning ALgorithms
+Codes of all basic/starter Machine Learning Algorithm that are needed. It Includes
 1> Regression
 2> Classification
 3> Clustering
